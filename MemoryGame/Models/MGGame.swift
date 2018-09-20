@@ -55,8 +55,11 @@ extension MGGame {
     private func randomCards() -> [MGCard] {
         var newCards = [MGCard]()
         for _ in 1...numberOfMatches {
-            // TODO: check that the card isn't already in the array
-            let card = MGCard(iconName: String.randomEmoji(), isMatched: false)
+            var card: MGCard
+            repeat {
+                card = MGCard(iconName: String.randomEmoji(), isMatched: false)
+            } while (newCards.contains(card) || card.iconName.isEmpty)
+            
             newCards.append(card)
             newCards.append(card)
         }
