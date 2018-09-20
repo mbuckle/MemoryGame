@@ -19,6 +19,8 @@ enum MGCacheKey: String {
 
 class MGSettingsModule: NSObject {
     
+    static let sharedInstance = MGSettingsModule()
+    
     private let userDefaults: UserDefaults
     private let absoluteNamespace: String
     

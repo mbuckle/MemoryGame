@@ -22,24 +22,24 @@ class MGGameViewController: UIViewController, UICollectionViewDataSource, UIColl
     let scoreLabel = UILabel()
     
     init(gameType: MGGameType) {
-        let gameId = MGSettingsModule().lastGameId() + 1
+        let gameId = MGSettingsModule.sharedInstance.lastGameId() + 1
         game = MGGame(gameId: gameId, gameType: gameType)
         
-        MGSettingsModule().setObject(value: gameId, for: MGCacheKey.lastGameId.rawValue)
-        MGSettingsModule().setObject(value: gameType.rawValue, for: MGCacheKey.lastGameType.rawValue)
-        MGSettingsModule().setObject(value: game.gameState.rawValue, for: MGCacheKey.lastGameState.rawValue)
-        MGSettingsModule().setObject(value: game.score, for: MGCacheKey.lastGameScore.rawValue)
+        MGSettingsModule.sharedInstance.setObject(value: gameId, for: MGCacheKey.lastGameId.rawValue)
+        MGSettingsModule.sharedInstance.setObject(value: gameType.rawValue, for: MGCacheKey.lastGameType.rawValue)
+        MGSettingsModule.sharedInstance.setObject(value: game.gameState.rawValue, for: MGCacheKey.lastGameState.rawValue)
+        MGSettingsModule.sharedInstance.setObject(value: game.score, for: MGCacheKey.lastGameScore.rawValue)
         
         cards = game.cards
-        MGSettingsModule().storeLastGameCards(cards)
+        MGSettingsModule.sharedInstance.storeLastGameCards(cards)
         
         super.init(nibName: nil, bundle: nil)
     }
     
     init(currentGame: MGGame) {
         game = currentGame
-        cards = MGSettingsModule().lastGameCards()
-        numberOfMatches = MGSettingsModule().object(for: MGCacheKey.numberOfMatches.rawValue) as? Int ?? 0
+        cards = MGSettingsModule.sharedInstance.lastGameCards()
+        numberOfMatches = MGSettingsModule.sharedInstance.object(for: MGCacheKey.numberOfMatches.rawValue) as? Int ?? 0
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -115,7 +115,7 @@ class MGGameViewController: UIViewController, UICollectionViewDataSource, UIColl
         }
         
         game.gameState = .inProgress
-        MGSettingsModule().setObject(value: game.gameState.rawValue, for: MGCacheKey.lastGameState.rawValue)
+        MGSettingsModule.sharedInstance.setObject(value: game.gameState.rawValue, for: MGCacheKey.lastGameState.rawValue)
         
         cell.label.isHidden = !cell.label.isHidden
         
@@ -130,10 +130,10 @@ class MGGameViewController: UIViewController, UICollectionViewDataSource, UIColl
                 cell.backgroundColor = UIColor.green
                 cards[indexPath.row].isMatched = true
                 
-                MGSettingsModule().storeLastGameCards(cards)
+                MGSettingsModule.sharedInstance.storeLastGameCards(cards)
                 
                 numberOfMatches += 1
-                MGSettingsModule().setObject(value: numberOfMatches, for: MGCacheKey.numberOfMatches.rawValue)
+                MGSettingsModule.sharedInstance.setObject(value: numberOfMatches, for: MGCacheKey.numberOfMatches.rawValue)
             } else {
                 showingPreviousPicks = true
                 let lastCell = lastPickCell
@@ -148,13 +148,13 @@ class MGGameViewController: UIViewController, UICollectionViewDataSource, UIColl
             lastPickIndexPath = nil
             
             game.score += 1
-            MGSettingsModule().setObject(value: game.score, for: MGCacheKey.lastGameScore.rawValue)
+            MGSettingsModule.sharedInstance.setObject(value: game.score, for: MGCacheKey.lastGameScore.rawValue)
             
             scoreLabel.text = "Score: \(game.score)"
             
             if numberOfMatches == game.numberOfMatches {
                 game.gameState = .completed
-                MGSettingsModule().setObject(value: game.gameState.rawValue, for: MGCacheKey.lastGameState.rawValue)
+                MGSettingsModule.sharedInstance.setObject(value: game.gameState.rawValue, for: MGCacheKey.lastGameState.rawValue)
                 
                 print(game.score)
                 
