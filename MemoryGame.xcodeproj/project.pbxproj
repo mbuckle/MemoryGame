@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA14707B215352E100981CB4 /* MGGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA14707A215352E100981CB4 /* MGGameViewController.swift */; };
 		CA2F5FE7215330DE00892F0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2F5FE6215330DE00892F0A /* AppDelegate.swift */; };
 		CA2F5FE9215330DE00892F0A /* MGHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2F5FE8215330DE00892F0A /* MGHomeViewController.swift */; };
 		CA2F5FEE215330DF00892F0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA2F5FED215330DF00892F0A /* Assets.xcassets */; };
@@ -14,9 +15,11 @@
 		CA2F5FFD2153357400892F0A /* MGSettingsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2F5FFC2153357400892F0A /* MGSettingsModule.swift */; };
 		CA2F6001215338AC00892F0A /* MGGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2F6000215338AC00892F0A /* MGGame.swift */; };
 		CA2F600321533A3900892F0A /* MGCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2F600221533A3900892F0A /* MGCard.swift */; };
+		CAE6B70421534C970013E606 /* MGCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6B70321534C970013E606 /* MGCardViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA14707A215352E100981CB4 /* MGGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGGameViewController.swift; sourceTree = "<group>"; };
 		CA2F5FE3215330DE00892F0A /* MemoryGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA2F5FE6215330DE00892F0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA2F5FE8215330DE00892F0A /* MGHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGHomeViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		CA2F5FFC2153357400892F0A /* MGSettingsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSettingsModule.swift; sourceTree = "<group>"; };
 		CA2F6000215338AC00892F0A /* MGGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGGame.swift; sourceTree = "<group>"; };
 		CA2F600221533A3900892F0A /* MGCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGCard.swift; sourceTree = "<group>"; };
+		CAE6B70321534C970013E606 /* MGCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGCardViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				CA2F5FE8215330DE00892F0A /* MGHomeViewController.swift */,
+				CA14707A215352E100981CB4 /* MGGameViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -98,6 +103,7 @@
 		CAE6B70221534B640013E606 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CAE6B70321534C970013E606 /* MGCardViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,6 +180,8 @@
 			files = (
 				CA2F600321533A3900892F0A /* MGCard.swift in Sources */,
 				CA2F5FFD2153357400892F0A /* MGSettingsModule.swift in Sources */,
+				CAE6B70421534C970013E606 /* MGCardViewCell.swift in Sources */,
+				CA14707B215352E100981CB4 /* MGGameViewController.swift in Sources */,
 				CA2F6001215338AC00892F0A /* MGGame.swift in Sources */,
 				CA2F5FE9215330DE00892F0A /* MGHomeViewController.swift in Sources */,
 				CA2F5FE7215330DE00892F0A /* AppDelegate.swift in Sources */,
