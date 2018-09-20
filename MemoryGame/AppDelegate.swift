@@ -21,10 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return false
         }
         
-        if MGSettingsModule().isGameInProgress() {
-            // Go to in progress game
-        } else {
-            window.rootViewController = MGHomeViewController()
+        let client = MGApiClient()
+        client.getLastGame { (game, error) in
+            if let game = game, game.gameState == .inProgress {
+                window.rootViewController = MGGameViewController(currentGame: game)
+            } else {
+                window.rootViewController = MGHomeViewController()
+            }
         }
         
         window.makeKeyAndVisible()

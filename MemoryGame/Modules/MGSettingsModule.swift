@@ -9,7 +9,12 @@
 import Foundation
 
 enum MGCacheKey: String {
-    case gameInProgress = "gameInProgress"
+    case lastGameId = "lastGameId"
+    case lastGameState = "lastGameState"
+    case lastGameScore = "lastGameScore"
+    case lastGameCards = "lastGameCards"
+    case lastGameType = "lastGameType"
+    case numberOfMatches = "numberOfMatches"
 }
 
 class MGSettingsModule: NSObject {
@@ -40,7 +45,17 @@ class MGSettingsModule: NSObject {
         self.userDefaults.set(value, forKey: self.namespaceKey(settingKey))
     }
     
-    public func isGameInProgress() -> Bool {
-        return self.object(for: MGCacheKey.gameInProgress.rawValue) as? Bool ?? false
+    public func lastGameId() -> Int {
+        return self.object(for: MGCacheKey.lastGameId.rawValue) as? Int ?? 0
+    }
+    
+    public func storeLastGameCards(_ cards: [MGCard]) {
+        let encoded = NSKeyedArchiver.archivedData(withRootObject: cards)
+        self.userDefaults.set(encoded, forKey: MGCacheKey.lastGameCards.rawValue)
+    }
+    
+    public func lastGameCards() -> [MGCard] {
+        let decoded = self.userDefaults.object(forKey: MGCacheKey.lastGameCards.rawValue) as? Data ?? Data()
+        return NSKeyedUnarchiver.unarchiveObject(with: decoded) as? [MGCard] ?? [MGCard]()
     }
 }

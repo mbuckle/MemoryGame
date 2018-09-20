@@ -8,7 +8,23 @@
 
 import Foundation
 
-struct MGCard {
+class MGCard: NSObject, NSCoding {
     let iconName: String
     var isMatched: Bool
+    
+    init(iconName: String, isMatched: Bool) {
+        self.iconName = iconName
+        self.isMatched = isMatched
+    }
+    
+    required convenience init(coder aDecoder: NSCoder) {
+        let iconName = aDecoder.decodeObject(forKey: "iconName") as? String ?? ""
+        let isMatched = aDecoder.decodeBool(forKey: "isMatched")
+        self.init(iconName: iconName, isMatched: isMatched)
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(iconName, forKey: "iconName")
+        aCoder.encode(isMatched, forKey: "isMatched")
+    }
 }
