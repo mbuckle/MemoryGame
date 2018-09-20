@@ -15,16 +15,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         guard let window = window else {
             return false
         }
         
-        let homeViewController = UIViewController()
-        homeViewController.view.backgroundColor = UIColor.red
+        if MGSettingsModule().isGameInProgress() {
+            // Go to in progress game
+        } else {
+            window.rootViewController = MGHomeViewController()
+        }
         
-        window.rootViewController = homeViewController
         window.makeKeyAndVisible()
         
         return true
