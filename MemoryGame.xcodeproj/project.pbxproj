@@ -18,6 +18,7 @@
 		CA2F600321533A3900892F0A /* MGCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2F600221533A3900892F0A /* MGCard.swift */; };
 		CAC054CB2153AD8400145815 /* MGApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC054CA2153AD8400145815 /* MGApiClient.swift */; };
 		CAC054CD2153AE7A00145815 /* MGError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC054CC2153AE7A00145815 /* MGError.swift */; };
+		CAC054CF2154179500145815 /* MGGameTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC054CE2154179500145815 /* MGGameTypeButton.swift */; };
 		CAE6B70421534C970013E606 /* MGCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6B70321534C970013E606 /* MGCardViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		CA2F600221533A3900892F0A /* MGCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGCard.swift; sourceTree = "<group>"; };
 		CAC054CA2153AD8400145815 /* MGApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGApiClient.swift; sourceTree = "<group>"; };
 		CAC054CC2153AE7A00145815 /* MGError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGError.swift; sourceTree = "<group>"; };
+		CAC054CE2154179500145815 /* MGGameTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGGameTypeButton.swift; sourceTree = "<group>"; };
 		CAE6B70321534C970013E606 /* MGCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGCardViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				CAE6B70321534C970013E606 /* MGCardViewCell.swift */,
+				CAC054CE2154179500145815 /* MGGameTypeButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				CA2F6001215338AC00892F0A /* MGGame.swift in Sources */,
 				CA14707E21536F2000981CB4 /* Array.swift in Sources */,
 				CAC054CB2153AD8400145815 /* MGApiClient.swift in Sources */,
+				CAC054CF2154179500145815 /* MGGameTypeButton.swift in Sources */,
 				CA2F5FE9215330DE00892F0A /* MGHomeViewController.swift in Sources */,
 				CA2F5FE7215330DE00892F0A /* AppDelegate.swift in Sources */,
 			);
