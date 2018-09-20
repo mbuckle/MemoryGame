@@ -58,8 +58,8 @@
 		CA2F5FE5215330DE00892F0A /* MemoryGame */ = {
 			isa = PBXGroup;
 			children = (
+				CAE6B70221534B640013E606 /* Views */,
 				CA2F5FFF215337DA00892F0A /* Models */,
-				CA2F5FFE215337CB00892F0A /* Views */,
 				CA2F5FFB2153355700892F0A /* Modules */,
 				CA2F5FFA2153352700892F0A /* ViewControllers */,
 				CA2F5FE6215330DE00892F0A /* AppDelegate.swift */,
@@ -86,13 +86,6 @@
 			path = Modules;
 			sourceTree = "<group>";
 		};
-		CA2F5FFE215337CB00892F0A /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		CA2F5FFF215337DA00892F0A /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +93,13 @@
 				CA2F600221533A3900892F0A /* MGCard.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		CAE6B70221534B640013E606 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
