@@ -30,15 +30,15 @@ class MGApiClient {
     func getLastGame(completionHandler completion: @escaping LastGameCompletionHandler) {
         
         // Mock data
-        guard let gameTypeInt = MGSettingsModule.sharedInstance.object(for: MGCacheKey.lastGameType.rawValue) as? MGGameType.RawValue, let gameType = MGGameType(rawValue: gameTypeInt), let gameStateInt = MGSettingsModule.sharedInstance.object(for: MGCacheKey.lastGameState.rawValue) as? MGGameState.RawValue, let gameState = MGGameState(rawValue: gameStateInt), let score = MGSettingsModule.sharedInstance.object(for: MGCacheKey.lastGameScore.rawValue) as? Int else {
+        guard let lastGame = MGSettingsModule.sharedInstance.object(for: MGCacheKey.lastGame.rawValue) as? MGGame else {
             completion(nil, MGError.invalidData)
             return
         }
         
-        completion(MGGame(gameId: MGSettingsModule.sharedInstance.lastGameId(),
-                          gameType: gameType,
-                          gameState: gameState,
-                          score: score), nil)
+        completion(MGGame(gameId: lastGame.gameId,
+                          gameType: lastGame.gameType,
+                          gameState: lastGame.gameState,
+                          score: lastGame.score), nil)
         
         /*
         guard let url = URL(string: "", relativeTo: baseUrl) else {

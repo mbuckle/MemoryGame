@@ -20,7 +20,7 @@ enum MGGameState: Int, Codable {
     case completed
 }
 
-class MGGame: Codable {
+class MGGame: NSObject, Codable, NSCoding {
     let gameId: Int
     let gameType: MGGameType
     var gameState: MGGameState
@@ -31,6 +31,23 @@ class MGGame: Codable {
         self.gameType = gameType
         self.gameState = gameState
         self.score = score
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(gameId, forKey: "gameId")
+        aCoder.encode(gameType.rawValue, forKey: "gameType")
+        aCoder.encode(gameState.rawValue, forKey: "gameState")
+        aCoder.encode(score, forKey: "score")
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        let gameId = aDecoder.decodeInteger(forKey: "gameId")
+        let gameTypeInt = aDecoder.decodeInteger(forKey: "gameType")
+        let gameType = MGGameType(rawValue: gameTypeInt) ?? .easy
+        let gameStateInt = aDecoder.decodeInteger(forKey: "gameState")
+        let gameState = MGGameState(rawValue: gameStateInt) ?? .notStarted
+        let score = aDecoder.decodeInteger(forKey: "score")
+        self.init(gameId: gameId, gameType: gameType, gameState: gameState, score: score)
     }
 }
 

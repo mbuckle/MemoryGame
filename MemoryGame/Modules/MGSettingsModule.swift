@@ -9,11 +9,8 @@
 import Foundation
 
 enum MGCacheKey: String {
-    case lastGameId = "lastGameId"
-    case lastGameState = "lastGameState"
-    case lastGameScore = "lastGameScore"
+    case lastGame = "lastGame"
     case lastGameCards = "lastGameCards"
-    case lastGameType = "lastGameType"
     case numberOfMatches = "numberOfMatches"
 }
 
@@ -40,24 +37,13 @@ class MGSettingsModule: NSObject {
     }
     
     public func object(for settingKey: String) -> Any? {
-        return self.userDefaults.object(forKey: self.namespaceKey(settingKey))
+        let decoded = self.userDefaults.object(forKey: settingKey) as? Data ?? Data()
+        return NSKeyedUnarchiver.unarchiveObject(with: decoded)
     }
     
     public func setObject(value: Any?, for settingKey: String) {
-        self.userDefaults.set(value, forKey: self.namespaceKey(settingKey))
-    }
-    
-    public func lastGameId() -> Int {
-        return self.object(for: MGCacheKey.lastGameId.rawValue) as? Int ?? 0
-    }
-    
-    public func storeLastGameCards(_ cards: [MGCard]) {
-        let encoded = NSKeyedArchiver.archivedData(withRootObject: cards)
-        self.userDefaults.set(encoded, forKey: MGCacheKey.lastGameCards.rawValue)
-    }
-    
-    public func lastGameCards() -> [MGCard] {
-        let decoded = self.userDefaults.object(forKey: MGCacheKey.lastGameCards.rawValue) as? Data ?? Data()
-        return NSKeyedUnarchiver.unarchiveObject(with: decoded) as? [MGCard] ?? [MGCard]()
+        guard let value = value else { return }
+        let encoded = NSKeyedArchiver.archivedData(withRootObject: value)
+        self.userDefaults.set(encoded, forKey: settingKey)
     }
 }
