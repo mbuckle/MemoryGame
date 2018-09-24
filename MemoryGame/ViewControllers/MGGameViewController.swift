@@ -28,7 +28,7 @@ class MGGameViewController: UIViewController, UICollectionViewDataSource, UIColl
         game = MGGame(gameId: gameId, gameType: gameType)
         MGSettingsModule.sharedInstance.setObject(value: game, for: MGCacheKey.lastGame.rawValue)
         
-        cards = game.cards
+        cards = game.randomCards()
         MGSettingsModule.sharedInstance.setObject(value: cards, for: MGCacheKey.lastGameCards.rawValue)
         
         super.init(nibName: nil, bundle: nil)
@@ -36,7 +36,7 @@ class MGGameViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     init(currentGame: MGGame) {
         game = currentGame
-        cards = MGSettingsModule.sharedInstance.object(for: MGCacheKey.lastGameCards.rawValue) as? [MGCard] ?? currentGame.cards
+        cards = MGSettingsModule.sharedInstance.object(for: MGCacheKey.lastGameCards.rawValue) as? [MGCard] ?? currentGame.randomCards()
         numberOfMatches = MGSettingsModule.sharedInstance.object(for: MGCacheKey.numberOfMatches.rawValue) as? Int ?? 0
         
         super.init(nibName: nil, bundle: nil)

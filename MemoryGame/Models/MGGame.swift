@@ -62,14 +62,8 @@ extension MGGame {
             return 12
         }
     }
-}
-
-extension MGGame {
-    var cards: [MGCard] {
-        return randomCards()
-    }
     
-    private func randomCards() -> [MGCard] {
+    func randomCards() -> [MGCard] {
         var newCards = [MGCard]()
         for _ in 1...numberOfMatches {
             var card: MGCard
