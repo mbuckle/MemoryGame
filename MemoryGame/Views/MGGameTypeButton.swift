@@ -38,10 +38,14 @@ class MGGameTypeButton: UIButton {
             setTitle("Hard", for: .normal)
             break
         }
-        setTitleColor(.blue, for: .normal)
         
-        sizeToFit()
+        setTitleColor(.white, for: .normal)
+        titleEdgeInsets = UIEdgeInsetsMake(5.0, 5.0, 5.0, 5.0)
+        layer.cornerRadius = 5.0
+        backgroundColor = UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.0)
+        
         translatesAutoresizingMaskIntoConstraints = false
+        widthAnchor.constraint(equalToConstant: 100.0).isActive = true
         
         let gestureRecognizer = MGGameTypeGestureRecognizer(target: self, action: #selector(startGame(gestureRecognizer:)))
         gestureRecognizer.gameType = gameType

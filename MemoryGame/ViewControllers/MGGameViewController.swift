@@ -166,9 +166,3 @@ class MGGameViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
 }
 
-
-
-
-
-
-

@@ -23,6 +23,7 @@ class MGCardViewCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.isHidden = true
         
+        layer.cornerRadius = 10.0
         backgroundColor = UIColor.red
     }
     
